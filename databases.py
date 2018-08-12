@@ -1,6 +1,6 @@
 # Database related imports
 # Make sure to import your tables!
-from model import Base, Student
+from model import Base, User
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -15,10 +15,10 @@ session = DBSession()
 # Your database functions are located under here (querying, adding items, etc.)
 
 # Example of adding a student:
-def add_student(student_name, student_year):
+def add_student(username1, password1, email1, name1, location1):
     print("Added a student!")
-    student = Student(name=student_name, year=student_year)
-    session.add(student)
+    user = User(username=username1, password=password1, email=email1, name=name1, location=location1)
+    session.add(user)
     session.commit()
 
 def get_all_students():
