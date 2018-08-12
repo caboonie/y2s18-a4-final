@@ -2,7 +2,8 @@
 <html>
     <head>
         <title>My Final Project</title>
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="../static/Dropdown.css">
     </head>
     <body>
     	<form>
@@ -15,21 +16,42 @@
     	<br>
     	<input type="text" name="gmail" placeholder="Gmail">
     	<br>
-    	<div class="dropdown">
-    		<button onclick="myFunction()" class="dropbtn">Dropdown</button>
-    		<div id="myDropdown" class="dropdown-content">
-    			<h4>my</h4>
-    			<h4>name</h4>
-    		</div>
-    	</div>
-    	<script>
-    		function myFunction() {
-    			document.getElementById("myDropdown").classList.toggle("show");
-}</script>
 
-//window.onclick = function(event) {
-  //if (!event.target.matches('.dropbtn')) {</script>
-    </form>
+		<button onclick="return myFunction()" class="dropbtn">Dropdown</button>
+		  <div id="myDropdown" class="dropdown-content">
+		    <a href="#login">Home</a>
+		    <a href="#about">About</a>
+		    <a href="#contact">Contact</a>
+		  </div>
+		</div>
+		<br>
+		<input type="submit" value="submit">
+	</form>
+
+    	<script>
+		function myFunction() {
+
+		    document.getElementById("myDropdown").classList.toggle("show");
+		    return false;
+		}
+
+		// Close the dropdown if the user clicks outside of it
+		window.onclick = function(event) {
+		  if (!event.target.matches('.dropbtn')) {
+
+		    var dropdowns = document.getElementsByClassName("dropdown-content");
+		    var i;
+		    for (i = 0; i < dropdowns.length; i++) {
+		      var openDropdown = dropdowns[i];
+		      if (openDropdown.classList.contains('show')) {
+		        openDropdown.classList.remove('show');
+		      }
+		    }
+		  }
+		}
+    		</script>
+
+
 
     </body>
 </html>
