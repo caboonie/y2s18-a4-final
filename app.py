@@ -17,17 +17,17 @@ def home():
 
 ############################################ SIGN-UP ##########################################
 
-@app.route('/sign-up',methods= ['GET','POST'])
+@app.route('/signup',methods= ['GET','POST'])
 def SignUp ():
     return render_template('signup.html')
-    pass
+    
 
 ############################################ LOGIN ############################################
 
 @app.route('/login',methods= ['GET','POST'])
 def Login():
     return render_template('login.html')
-    pass
+    
 
 ############################################ CATEGORIES #######################################
 
@@ -40,8 +40,8 @@ def Show():
 
 @app.route('/request')
 def Add():
-    return render_template('Request.html')
-    pass
+    return render_template('post_request.html')
+    
 
 
 ############################################ PROFILE ############################################
