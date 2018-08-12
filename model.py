@@ -20,4 +20,4 @@ class User(Base):
 
 
     def __repr__(self):
-        return ("username: {}, password:{}, email:{}".format(self.username, self.password, self.email))
+        return ("username: {}, password:{}, email:{}, name:{}, location:{}".format(self.username, self.password, self.email, self.name, self.location))

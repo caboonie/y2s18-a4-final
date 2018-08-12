@@ -2,7 +2,7 @@
 from flask import Flask, render_template, url_for, redirect, request, session
 
 # Add functions you need from databases.py to the next line!
-from databases import add_student, get_all_students
+from databases import *
 
 # Starting the flask app
 app = Flask(__name__)
@@ -26,8 +26,13 @@ def SignUp ():
 
 @app.route('/login',methods= ['GET','POST'])
 def Login():
-    return render_template('login.html')
-    pass
+    if request.method == 'GET':
+        return render_template('login.html')
+    else:
+        user = request.form['username']
+        password = request.form['password']
+        return(check_account(user,password))
+        
 
 ############################################ CATEGORIES #######################################
 

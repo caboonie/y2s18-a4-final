@@ -24,3 +24,9 @@ def add_student(username1, password1, email1, name1, location1):
 def get_all_students():
     students = session.query(Student).all()
     return students
+
+def check_account(user,password):
+    if session.query(User).filter_by(username=user).first() != None and session.query(User).filter_by(username=user).first().password == password:
+        return("THIS account exists!")
+    else:
+        return("This account does not exists!")
