@@ -6,15 +6,29 @@
     </head>
     <body>
     	<form>
-    	<input type="text" name="First name" placeholder="First name">
+    	<input type="text" name="First name" placeholder="First name"><br>
     	<input type="text" name="Last name" placeholder="Last name">
     	<br>
     	<input type="text" name="Log in" placeholder="Username">
     	<br>
-    	<input type="text" name="Log in" placeholder="Username">
-    	<br>
-    	<br>
     	<input type="password" name="pwd" placeholder="Password">
+    	<br>
+    	<input type="text" name="gmail" placeholder="Gmail">
+    	<br>
+    	<div class="dropdown">
+    		<button onclick="myFunction()" class="dropbtn">Dropdown</button>
+    		<div id="myDropdown" class="dropdown-content">
+    			<h4>my</h4>
+    			<h4>name</h4>
+    		</div>
+    	</div>
+    	<script>
+    		function myFunction() {
+    			document.getElementById("myDropdown").classList.toggle("show");
+}</script>
+
+//window.onclick = function(event) {
+  //if (!event.target.matches('.dropbtn')) {</script>
     </form>
 
     </body>
