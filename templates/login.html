@@ -2,16 +2,29 @@
 <html>
     <head>
         <title>My Final Project</title>
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+        <link rel="stylesheet" type="text/css" href="../static/style_new.css">
+    <style>
+    </style>
     </head>
     <body>
-    	<form method="post" action="/login">
-    	<input type="text" name="username" placeholder="Username">
-    	<br>
-    	<input type="password" name="password" placeholder="Password">
 
-        <input type="submit" value="login">
+    	<form method="post" action="/login">
+    	<br>
+        <br>
+        <div class="login">
+        <h2>Login:</h2>
+        <input type="text" name="username" placeholder="Username">
+    	<br>
+        <br>
+    	<input type="password" name="password" placeholder="Password">
+        <br>
+        <br>
+        <input type="submit" value="Login">
+        <br>
+        <br>
+        <a href="{{url_for('SignUp')}}">no account? sign up</a>
+        
+        </div>
     </form>
-    <a href="{{url_for('SignUp')}}">no account? sign up</a>
     </body>
 </html>
