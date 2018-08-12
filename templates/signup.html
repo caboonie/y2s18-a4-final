@@ -7,9 +7,9 @@
     </head>
     <body>
     	<form>
+        <br>
+        <br>
         <div class="signup">
-        <br>
-        <br>
     	<input type="text" name="First name" placeholder="First name">
         <br>
         <br>
@@ -24,16 +24,22 @@
         <br>
     	<input type="text" name="gmail" placeholder="Gmail">
     	<br>
-		<button onclick="return myFunction()" class="dropbtn">Dropdown</button>
+        <br>
+        <br>
+		<button onclick="return myFunction()" class="dropbtn">Neighborhood</button>
 		  <div id="myDropdown" class="dropdown-content">
-		    <a href="#login">Home</a>
-		    <a href="#about">About</a>
-		    <a href="#contact">Contact</a>
+		    <a href="#haifa">Haifa</a>
+		    <a href="#nazareth">Nazareth</a>
+		    <a href="#jerusalem">Jerusalem</a>
 		  </div>
-		</div>
 		<br>
+		<br>
+        <br>
 		<input type="submit" value="submit">
-	</form>
+        <br>
+        <br>
+        </div>
+	    </form>
 
     	<script>
 		function myFunction() {
@@ -42,7 +48,7 @@
 		    return false;
 		}
 
-		// Close the dropdown if the user clicks outside of it
+		
 		window.onclick = function(event) {
 		  if (!event.target.matches('.dropbtn')) {
 
