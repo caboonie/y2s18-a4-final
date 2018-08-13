@@ -3,21 +3,63 @@
     <head>
         <title>My Final Project</title>
         <link rel="stylesheet" type="text/css" href="../static/homepage.css">
+        <!-- Required tags to make the website responsive-->
+              <!-- Required tags to make the website responsive-->
+       <meta charset="utf-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+       <!-- Add Bootstrap CSS to the page -->
+       <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap/bootstrap.css') }}">
+
+
     </head>
     <body>
-        <h1 id="NAME">BillBlock</h1>
-        <a onclick="f1()"href="login.html" class="toolbar">Log in</a>
-        <a onclick="f1()"href="signup.html" class="toolbar">sign up</a>
-        <a onclick="f1()"href="request.html" class="toolbar">request</a>
-        <button onclick="return myFunction()" class="dropbtn">Category</button>
 
-		  <div id="myDropdown" class="dropdown-content">
-		    <a href="request.html">Jobs</a>
-		    <a href="request.html">Sales</a>
-		    <a href="request.html">Losts & Founds</a>
-		    <a href="homepage.html">News</a>
-		    <a href="request.html">Others</a>
-		  </div>
+		    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('Add')}}">Post a request</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false	">
+          Category's
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Jobs</a>
+          <a class="dropdown-item" href="#">Sales</a>
+          <a class="dropdown-item" href="#">Losts & Founds</a>
+          <a class="dropdown-item" href="#">News</a>
+          <a class="dropdown-item" href="#">Others</a>
+        </div>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0" method="post">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" name="data" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+        <link rel="stylesheet" type="text/css" href="../static/style_new.css">
+    <style>
+    	h1{
+    		font-size: 50px;
+    		font-family: "Courier New", Courier New, Monospace;
+    		position:absolute;
+    		top:50px;
+    		left:50px;
+    	}
+    </style>
+    </head>
+    
 	<script>
 		function myFunction() {
 			document.getElementById("myDropdown").classList.toggle("show");
@@ -35,6 +77,16 @@
 		    }
 		  }
 		}
+
+
+
 	</script>
+
+
+       <!-- Add JQuery and Bootstrap JS to the page -->
+       <!-- JQuery MUST BE BEFORE BOOTSTRAP -->
+       <script src="{{ url_for('static', filename='bootstrap/jquery.js') }}"></script>
+       <script src="{{ url_for('static', filename='bootstrap/bootstrap.bundle.js') }}"></script>
+
     </body>
 </html>

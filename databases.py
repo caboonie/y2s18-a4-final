@@ -45,3 +45,11 @@ def query_by_job():
        Post).filter_by(
        category="jobs").all()
     return posts
+
+def search(data):
+	matches = []
+	data = data.lower()
+	for i in session.query(Post).all():
+		if data in i.description.lower():
+			matches.append(i)
+	return matches
