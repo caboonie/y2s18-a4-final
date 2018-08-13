@@ -56,8 +56,20 @@
  }
 
 body {
-    margin: 0;
-    background-color: #99ffd8;
+    height: 100vh;
+    margin:0px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    background-repeat:no-repeat;
+    background: -webkit-linear-gradient( to  top, PaleTurquoise , DarkOrange);
+    background: -moz-linear-gradient( to  top, PaleTurquoise , DarkOrange);
+    background: -ms-linear-gradient( to  top,  PaleTurquoise , DarkOrange);
+    background: -o-linear-gradient( to  top,  PaleTurquoise , DarkOrange);
+    background: linear-gradient( to  top, PaleTurquoise , DarkOrange);
+
 }
 .texta {
     position: absolute;
@@ -75,12 +87,11 @@ body {
     top:100px;
     left:500px;
     font-family: "Courier New", Courier New, Monospace;
-    font-size: 20px;
+    font-size: 15px;
 
 }
 .bar{
     padding: 25px;
-    background-color: orange;
     color:black;
     border: 3px solid white;
     border-radius: 10px;
