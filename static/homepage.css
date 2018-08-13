@@ -5,9 +5,6 @@
     font-size: 16px;
     border: none;
     cursor: pointer;
-    font-family: "Courier New", Courier New, Monospace;
-    font-size: 15px;
-
 }
 
 .dropbtn:hover, .dropbtn:focus {
@@ -27,9 +24,6 @@
     overflow: auto;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
-    font-family: "Courier New", Courier New, Monospace;
-    font-size: 10px;
-
 }
 
 .dropdown-content a {
@@ -37,9 +31,6 @@
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-    font-family: "Courier New", Courier New, Monospace;
-    font-size: 10px;
-
 }
 
 .dropdown a:hover {background-color: #ddd;}
@@ -55,35 +46,14 @@ body {
     position: absolute;
     top: 100px;
     left: 700px;
-    font-family: "Courier New", Courier New, Monospace;
-    font-size: 10px;
-
 }
 .login {
-    padding: 150px;
-    background: orange;
-    border: 3px solid white;
-    border-radius: 50px;
     position:absolute;
     top:100px;
     left:500px;
-    font-family: "Courier New", Courier New, Monospace;
-    font-size: 15px;
-
 }
 .signup{
     position:absolute;
     top:100px;
     left:500px;
-    font-family: "Courier New", Courier New, Monospace;
-    font-size: 15px;
-
-}
-.forgotpass{
-    position:absolute;
-    top:100px;
-    left:500px;
-    font-family: "Courier New", Courier New, Monospace;
-    font-size: 20px;
-
 }

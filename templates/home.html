@@ -2,10 +2,34 @@
 <html>
     <head>
         <title>My Final Project</title>
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+        <link rel="stylesheet" type="text/css" href="../static/homepage.css">
     </head>
     <body>
         <h1 id="NAME">BillBlock</h1>
-        
+        <a onclick="f1()"href="login.html" class="toolbar">Log in</a>
+        <a ="f1()"href="signup.html" class="toolbar"></a>
+        <button onclick="return myFunction()" class="dropbtn">Category</button>
+		  <div id="myDropdown" class="dropdown-content">
+		    <a href="signup.html">signup</a>
+		    <a href="login.html">login</a>
+		  </div>
+	<script>
+		function myFunction() {
+			document.getElementById("myDropdown").classList.toggle("show");
+		    return false;
+		}
+		window.onclick = function(event) {
+			if (!event.target.matches('.dropbtn')) {
+			var dropdowns = document.getElementsByClassName("dropdown-content");
+			var i;
+			for (i = 0; i < dropdowns.length; i++) {
+				var openDropdown = dropdowns[i];
+				if (openDropdown.classList.contains('show')) {
+		        openDropdown.classList.remove('show');
+		      }
+		    }
+		  }
+		}
+	</script>
     </body>
 </html>
