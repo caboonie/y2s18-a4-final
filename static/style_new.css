@@ -55,8 +55,16 @@ body {
     position:absolute;
     top:100px;
     left:500px;
+    font-family: "Courier New", Courier New, Monospace;
+    font-size: 20px;
+
 }
 .signup{
+    position:absolute;
+    top:100px;
+    left:500px;
+}
+.forgotpass{
     position:absolute;
     top:100px;
     left:500px;
