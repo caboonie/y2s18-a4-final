@@ -54,10 +54,15 @@ def Show():
 
 ############################################ REQUEST ############################################
 
-@app.route('/request.html')
+@app.route('/request.html',methods= ['GET','POST'])
 def Add():
-    return render_template('post_request.html')
-    
+    if request.method == 'GET':
+        return render_template('post_request.html')
+    else:
+        cat = request.form['cat']
+        text = request.form['text']
+        add_post(cat,text)
+        return("your post has been published")
 
 
 ############################################ PROFILE ############################################
@@ -85,4 +90,4 @@ def frgt_pwd():
 
 # Running the Flask app
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=8080)

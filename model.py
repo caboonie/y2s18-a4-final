@@ -18,7 +18,12 @@ class User(Base):
     lastName = Column(String)
     location = Column(String)
 
-
-
     def __repr__(self):
         return ("username: {}, password:{}, email:{}, name:{}, lastName:{}, location:{}".format(self.username, self.password, self.email, self.name, self.lastName, self.location))
+
+
+class Post(Base):
+	__tablename__ = "posts"
+	id = Column(Integer, primary_key = True)
+	category = Column(String)
+	description = Column(String)
