@@ -18,7 +18,7 @@ def home():
 
 ############################################ SIGN-UP ##########################################
 
-@app.route('/signup',methods= ['GET','POST'])
+@app.route('/signup.html',methods= ['GET','POST'])
 def SignUp ():
     if request.method == 'GET':
         return render_template('signup.html')
@@ -35,7 +35,7 @@ def SignUp ():
 
 ############################################ LOGIN ############################################
 
-@app.route('/login',methods= ['GET','POST'])
+@app.route('/login.html',methods= ['GET','POST'])
 def Login():
     if request.method == 'GET':
         return render_template('login.html')
@@ -47,14 +47,14 @@ def Login():
 
 ############################################ CATEGORIES #######################################
 
-@app.route('/categories')
+@app.route('/categories.html')
 def Show():
     return render_template('Categories.html')
     pass
 
 ############################################ REQUEST ############################################
 
-@app.route('/request')
+@app.route('/request.html')
 def Add():
     return render_template('post_request.html')
     
@@ -62,7 +62,7 @@ def Add():
 
 ############################################ PROFILE ############################################
 
-@app.route('/profile')
+@app.route('/profile.html')
 def Show_prof():
     return render_template('Profile.html')
     pass
