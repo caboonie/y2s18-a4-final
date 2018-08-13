@@ -19,7 +19,17 @@ def home():
 
 @app.route('/signup',methods= ['GET','POST'])
 def SignUp ():
-    return render_template('signup.html')
+    if request.method == 'GET':
+        return render_template('signup.html')
+    else:
+        name = request.form['name']
+        lastName = request.form['familyName']
+        user = request.form['user']
+        password = request.form['password']
+        mail = request.form['mail']
+        loc = request.form['loc']
+        add_student(user,password,mail,name,lastName,loc)
+        return("HELLO")
     
 
 ############################################ LOGIN ############################################
@@ -32,9 +42,7 @@ def Login():
         user = request.form['username']
         password = request.form['password']
         return(check_account(user,password))
-        
-    return render_template('login.html')
-    
+            
 
 ############################################ CATEGORIES #######################################
 
