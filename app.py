@@ -12,9 +12,15 @@ app = Flask(__name__)
 
 ############################################ HOME ############################################
 
-@app.route('/')
+@app.route('/' ,methods= ['GET','POST'])
 def home():
-    return render_template('home.html')
+    if request.method == 'GET':
+        return render_template('home.html')
+    else:
+        result = request.form['data']
+        print("HELP MEEEEEEEEEEEEEEEEEEEE ")
+        print(result)
+        return redirect(url_for('display_result', result=result))
 
 ############################################ SIGN-UP ##########################################
 
@@ -86,6 +92,12 @@ def frgt_pwd():
         else:
             return("Sorry, this email does not exists!")
 
+@app.route('/searchResult/<string:result>',methods= ['GET','POST'])
+def display_result(result):
+    print(result)
+    if request.method == 'GET':
+        matches = search(result)
+        return render_template('searchResult.html',matches=matches)
 ##############################################################################################
 
 # Running the Flask app

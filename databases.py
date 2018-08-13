@@ -40,3 +40,11 @@ def if_account_exist(email1):
 	if session.query(User).filter_by(email=email1).first() is not None:
 		return True
 	return False
+
+def search(data):
+	matches = []
+	data = data.lower()
+	for i in session.query(Post).all():
+		if data in i.description.lower():
+			matches.append(i)
+	return matches
