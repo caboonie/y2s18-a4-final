@@ -15,9 +15,10 @@ class User(Base):
     password = Column(String)
     email = Column(String)
     name = Column(String)
+    lastName = Column(String)
     location = Column(String)
 
 
 
     def __repr__(self):
-        return ("username: {}, password:{}, email:{}, name:{}, location:{}".format(self.username, self.password, self.email, self.name, self.location))
+        return ("username: {}, password:{}, email:{}, name:{}, lastName:{}, location:{}".format(self.username, self.password, self.email, self.name, self.lastName, self.location))
