@@ -4,6 +4,7 @@ from flask import Flask, render_template, url_for, redirect, request, session
 # Add functions you need from databases.py to the next line!
 from databases import *
 
+from forgotpass import send_mail
 # Starting the flask app
 app = Flask(__name__)
 
@@ -68,10 +69,17 @@ def Show_prof():
 
 ############################################ HOME ############################################
 
-@app.route('/forgotpass')
+@app.route('/forgotpass',methods= ['GET','POST'])
 def frgt_pwd():
-    return render_template('forgotpwd.html')
-
+    if request.method == 'GET':
+        return render_template('forgotpwd.html')
+    else:
+        email = request.form['email']
+        if if_account_exist(email):
+            send_mail(email)
+            return("Your password has been sent to your email!")
+        else:
+            return("Sorry, this email does not exists!")
 
 ##############################################################################################
 
