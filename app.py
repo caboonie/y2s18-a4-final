@@ -18,8 +18,6 @@ def home():
         return render_template('home.html')
     else:
         result = request.form['data']
-        print("HELP MEEEEEEEEEEEEEEEEEEEE ")
-        print(result)
         return redirect(url_for('display_result', result=result))
 
 ############################################ SIGN-UP ##########################################
