@@ -30,3 +30,8 @@ def check_account(user,password):
         return("THIS account exists!")
     else:
         return("This account does not exists!")
+
+def if_account_exist(email1):
+	if session.query(User).filter_by(email=email1).first() is not None:
+		return True
+	return False
