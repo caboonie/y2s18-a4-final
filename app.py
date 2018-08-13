@@ -9,7 +9,13 @@ from forgotpass import send_mail
 app = Flask(__name__)
 
 # App routing code here
-
+from model import Base,Post
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+engine = create_engine('sqlite:///lecture.db')
+Base.metadata.create_all(engine)
+DBSession = sessionmaker(bind=engine)
+session = DBSession()
 ############################################ HOME ############################################
 
 @app.route('/' ,methods= ['GET','POST'])
@@ -70,6 +76,10 @@ def Add():
 
 
 ############################################ PROFILE ############################################
+@app.route('/Jobs.html')
+def jobspage():
+    return render_template('Jobs.html',posts=query_by_job())
+###############################################################
 
 @app.route('/profile.html')
 def Show_prof():
@@ -98,6 +108,10 @@ def display_result(result):
         return render_template('searchResult.html',matches=matches)
 ##############################################################################################
 
+##########################################################################################
 # Running the Flask app
 if __name__ == "__main__":
     app.run(debug=True, port=8080)
+
+##############################################################################################
+

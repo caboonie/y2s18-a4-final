@@ -40,6 +40,11 @@ def if_account_exist(email1):
 	if session.query(User).filter_by(email=email1).first() is not None:
 		return True
 	return False
+def query_by_job():
+    posts = session.query(
+       Post).filter_by(
+       category="jobs").all()
+    return posts
 
 def search(data):
 	matches = []
