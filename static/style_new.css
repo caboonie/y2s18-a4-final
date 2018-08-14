@@ -80,10 +80,14 @@ body {
 }
 .cat{
     position:absolute;
-    top:200px;
-    left:30px;
+    top:150px;
+    left:300px;
     font-family: "Courier New", Courier New, Monospace;
-    font-size: 15px;
+    font-size: 25px;
+}
+.ul{
+    position:absolute;
+    left:-5px;
 }
 .login {
     padding: 30px;
@@ -94,7 +98,7 @@ body {
     top:150px;
     left:800px;
     font-family: "Courier New", Courier New, Monospace;
-    font-size: 15px;
+    font-size: 25px;
 
 }
 .bar{

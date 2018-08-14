@@ -5,7 +5,11 @@
 	<link rel="stylesheet" type="text/css" href="../static/style_new.css">
 
  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap/bootstrap.css') }}">
-
+<style>
+   ul {
+      list-style-type: none;
+ }
+</style>
 
     </head>
     <body>
@@ -88,15 +92,18 @@
 			<br>
 			<br>
 			<h3>Category:</h3>
-			<input type="radio" name="cat" value="jobs">Jobs
-			<input type="radio" name="cat" value="sales">Sales
-			<input type="radio" name="cat" value="l&f">Losts&Founds
-			<input type="radio" name="cat" value="news">News
-			<input type="radio" name="cat" value="others">Others
+      <br>
+      
+      <ul>
+			<li><input type="radio" name="cat" value="jobs">Jobs</li>
+			<li><input type="radio" name="cat" value="sales">Sales</li>
+			<li><input type="radio" name="cat" value="l&f">Losts&Founds</li>
+			<li><input type="radio" name="cat" value="news">News</li>
+			<li><input type="radio" name="cat" value="others">Others</li>
+      
+      </ul>
+      <br>
 			<br>
-			<br>
-			<br>
-
 			<input type="submit" value="Submit">
       </div>
 			<div class="texta">
