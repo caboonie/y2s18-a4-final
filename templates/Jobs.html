@@ -52,12 +52,7 @@
 
 
     </script>
-    <form>
-    	{% for j in jobs_posts %}
-    	   <p>{{ j.category }}</p>
-           <p>{{j.description }}</p>
-           <label for="post"></label>
-    	{% endfor %}  
+
 
     
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -104,7 +99,12 @@
 
       <script src="{{ url_for('static', filename='bootstrap/jquery.js') }}"></script>
       <script src="{{ url_for('static', filename='bootstrap/bootstrap.bundle.js') }}"></script>
-
+      <form>
+        {% for j in jobs_posts %}
+           <p>{{ j.category }}</p>
+             <p>{{j.description }}</p>
+             <label for="post"></label>
+        {% endfor %}  
 </form>
 </body>
    
