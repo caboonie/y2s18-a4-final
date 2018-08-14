@@ -9,19 +9,12 @@ from forgotpass import send_mail
 app = Flask(__name__)
 
 # App routing code here
-from model import Base,Post
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-engine = create_engine('sqlite:///lecture.db')
-Base.metadata.create_all(engine)
-DBSession = sessionmaker(bind=engine)
-session = DBSession()
 
 
 # Check Configuration section for more details
 # SESSION_TYPE = 'redis'
 # app.config['SESSION_TYPE'] = 'filesystem'
-# app.secret_key = "VERY SECRET." 
+# app.secret_key = "VERY SECRET."
 # Session(app)
 ############################################ HOME ############################################
 
@@ -30,8 +23,7 @@ def home():
     if request.method == 'GET':
         return render_template('home.html')
     else:
-        result = request.form['data']
-        return redirect(url_for('display_result', result=result))
+        return redirect(url_for('display_result'))
 
 ############################################ SIGN-UP ##########################################
 
@@ -108,14 +100,16 @@ def frgt_pwd():
         else:
             return("Sorry, this email does not exists!")
 
-@app.route('/searchResult/<string:result>',methods= ['GET','POST'])
-def display_result(result):
-    print(result)
-    if request.method == 'GET':
+@app.route('/searchResult',methods= ['GET','POST'])
+def display_result():
+    if request.method == 'POST':
+        result = request.form['data']        
         matches = search(result)
-        if matches is None:
+        if len(matches) == 0:
             return("No results")
         return render_template('searchResult.html',matches=matches)
+    else:
+        return "no"
 
 # def logout(username):
 #     del login_session['username']
