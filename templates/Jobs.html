@@ -3,14 +3,28 @@
     <head>
         <title>My Final Project</title>
         <link rel="stylesheet" type="text/css" href="../static/style_new.css">
+        <style> 
+        input[type=text] {
+            width: 30%;
+            padding: 90px 75px;
+            margin: 9px ;
+            box-sizing: border-box;
+            border: none;
+            background-color: #3CBC8D;
+            color: white;
+            }
+        </style>
     </head>
     <body>
     	<ul>
     		{% for j in jobs_posts %}
     			<li>{{ j.category }}</li>
-    			<li>ghjk</li>
     		{% endfor %}  
     </ul>
     <p>tyui</p>
-    </body>
-    </html>
+    <form>
+    <label for="post"></label>
+    <input type="text" id="post" name="post" value=jobs_posts[j]>
+</form>
+</body>
+   
