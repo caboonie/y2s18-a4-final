@@ -1,27 +1,18 @@
 # Flask-related imports
-from flask import Flask, render_template, url_for, redirect, request
-# from flask import session as login_session
 # Add functions you need from databases.py to the next line!
 from databases import *
+from flask import Flask, flash, session, render_template, url_for, redirect, request
+# from flask import session as login_session
 # from flask.ext.session import Session
 from forgotpass import send_mail
 # Starting the flask app
 app = Flask(__name__)
 
-# App routing code here
-from model import Base,Post
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-engine = create_engine('sqlite:///lecture.db')
-Base.metadata.create_all(engine)
-DBSession = sessionmaker(bind=engine)
-session = DBSession()
-
 
 # Check Configuration section for more details
 # SESSION_TYPE = 'redis'
 # app.config['SESSION_TYPE'] = 'filesystem'
-# app.secret_key = "VERY SECRET." 
+app.secret_key = "VERY SECRET." 
 # Session(app)
 ############################################ HOME ############################################
 
@@ -40,6 +31,8 @@ def SignUp ():
     if request.method == 'GET':
         return render_template('signup.html')
     else:
+        flash('You were successfully logged in')
+        print('signed up')
         name = request.form['name']
         lastName = request.form['familyName']
         user = request.form['user']
@@ -60,7 +53,7 @@ def Login():
         user = request.form['username']
         password = request.form['password']
         if check_account(user,password):
-            # login_session['username'] = user
+            session['username'] = request.form['username']
             return redirect(url_for('show_prof',username=user))
         else:
             return render_template('login.html')
