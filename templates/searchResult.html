@@ -2,9 +2,15 @@
 <html>
     <head>
         <title>My Final Project</title>
-
+         <link rel="stylesheet" type="text/css" href="../static/search.css">
     </head>
     <body>
-      hello
+        {% for post in matches %}
+      <div class="post">
+      <ul class="list">
+        <li>{{post.description}}</li><br><br>
+      </ul>
+      </div>
+        {% endfor %}
     </body>
     </html>
