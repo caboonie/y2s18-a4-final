@@ -121,8 +121,6 @@ body {
 }
 #image{
     position: relative;
-    top: 500px;
-    right: 100px;
 }
 div.background {
   background: url(klematis.jpg) repeat;
