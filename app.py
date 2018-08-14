@@ -106,7 +106,7 @@ def display_result(result):
         return render_template('searchResult.html',matches=matches)
 
 ##############################################################################################
-@app.route('/Jobs.')
+@app.route('/Jobs')
 def jobs_page():
     return render_template('Jobs.html',jobs_posts=query_by_job())
 

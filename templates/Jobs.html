@@ -18,13 +18,11 @@
     <body>
     <form>
     	{% for j in jobs_posts %}
-    	   <li>{{ j.category }}</li>
+    	   <p>{{ j.category }}</p>
+           <p>{{j.description }}</p>
     	{% endfor %}  
     
    
-    
-    <label for="post"></label>
-    <input type="text" id="post" name="post" value=jobs_posts[j]>
 </form>
 </body>
    
