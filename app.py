@@ -1,9 +1,9 @@
 # Flask-related imports
-from flask import Flask, render_template, url_for, redirect, request, session
-
+from flask import Flask, render_template, url_for, redirect, request
+# from flask import session as login_session
 # Add functions you need from databases.py to the next line!
 from databases import *
-
+# from flask.ext.session import Session
 from forgotpass import send_mail
 # Starting the flask app
 app = Flask(__name__)
@@ -16,6 +16,13 @@ engine = create_engine('sqlite:///lecture.db')
 Base.metadata.create_all(engine)
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
+
+
+# Check Configuration section for more details
+# SESSION_TYPE = 'redis'
+# app.config['SESSION_TYPE'] = 'filesystem'
+# app.secret_key = "VERY SECRET." 
+# Session(app)
 ############################################ HOME ############################################
 
 @app.route('/' ,methods= ['GET','POST'])
@@ -40,7 +47,7 @@ def SignUp ():
         mail = request.form['mail']
         loc = request.form['loc']
         add_student(user,password,mail,name,lastName,loc)
-        return("HELLO")
+        return redirect(url_for('home'))
     
 
 ############################################ LOGIN ############################################
@@ -53,9 +60,10 @@ def Login():
         user = request.form['username']
         password = request.form['password']
         if check_account(user,password):
-            return(profile(user))
+            # login_session['username'] = user
+            return redirect(url_for('show_prof',username=user))
         else:
-            return('/login.html')
+            return render_template('login.html')
             
 
 ############################################ CATEGORIES #######################################
@@ -72,8 +80,8 @@ def Add():
     if request.method == 'GET':
         return render_template('post_request.html')
     else:
-        cat = request.form['cat']
-        text = request.form['text']
+        cat = request.form['cat'].strip()
+        text = request.form['text'].strip()
         add_post(cat,text)
         return("your post has been published")
 
@@ -84,9 +92,11 @@ def jobspage():
     return render_template('Jobs.html',posts=query_by_job())
 ###############################################################
 
-@app.route('/profile.html')
-def show_prof():
-    return render_template('profile.html')
+@app.route('/<string:username>/profile.html')
+def show_prof(username):
+    # user = query_by_username(login_session['username'])
+    user = query_by_username(username)
+    return render_template('profile.html',user=user)
 
 ############################################ HOME ############################################
 
@@ -107,8 +117,12 @@ def display_result(result):
     print(result)
     if request.method == 'GET':
         matches = search(result)
+        if matches is None:
+            return("No results")
         return render_template('searchResult.html',matches=matches)
 
+# def logout(username):
+#     del login_session['username']
 ##############################################################################################
 
 ##########################################################################################

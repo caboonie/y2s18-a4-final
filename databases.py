@@ -32,14 +32,18 @@ def get_all_students():
 
 def check_account(user,password):
     if session.query(User).filter_by(username=user).first() != None and session.query(User).filter_by(username=user).first().password == password:
-        return("THIS account exists!")
+        return True
     else:
-        return("This account does not exists!")
+        return False
 
 def if_account_exist(email1):
 	if session.query(User).filter_by(email=email1).first() is not None:
 		return True
 	return False
+
+def query_by_username(username1):
+	return session.query(User).filter_by(username=username1).first()
+	
 def query_by_job():
     posts = session.query(
        Post).filter_by(
