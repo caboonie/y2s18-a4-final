@@ -3,17 +3,6 @@
     <head>
         <title>My Final Project</title>
         <link rel="stylesheet" type="text/css" href="../static/style_new.css">
-        <style> 
-        input[type=text] {
-            width: 30%;
-            padding: 90px 75px;
-            margin: 9px ;
-            box-sizing: border-box;
-            border: none;
-            background-color: #3CBC8D;
-            color: white;
-            }
-        </style>
  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap/bootstrap.css') }}">
 
 
@@ -92,14 +81,12 @@
 
     </script>
     <body>
-    <form>
-    	{% for j in jobs_posts %}
-    	   <p>{{ j.category }}</p>
-           <p>{{j.description }}</p>
-           <label for="post"></label>
-    	{% endfor %}  
-    
-   
-</form>
-</body>
-   
+    	<ul>
+    		{% for j in lost_and_found_posts %}
+    			<li>{{ j.category }}</li>
+    			<li>ghjk</li>
+    		{% endfor %}  
+    </ul>
+    <p>tyui</p>
+    </body>
+    </html>

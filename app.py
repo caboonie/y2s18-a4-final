@@ -87,10 +87,6 @@ def Add():
 
 
 ############################################ PROFILE ############################################
-@app.route('/Jobs.html')
-def jobspage():
-    return render_template('Jobs.html',posts=query_by_job())
-###############################################################
 
 @app.route('/<string:username>/profile.html')
 def show_prof(username):
@@ -124,7 +120,29 @@ def display_result(result):
 # def logout(username):
 #     del login_session['username']
 ##############################################################################################
+@app.route('/Jobs')
+def jobs_page():
+    return render_template('Jobs.html',jobs_posts=query_by_job())
 
+##########################################################################################
+@app.route('/sales')
+def sales_page():
+    return render_template('Sales.html',posts=query_by_job())
+
+##########################################################################################
+@app.route('/lostandfound')
+def lost_and_found_page():
+    return render_template('lost_and_found.html',posts=query_by_job())
+
+##########################################################################################
+@app.route('/news')
+def news_page():
+    return render_template('news.html',posts=query_by_job())
+
+##########################################################################################
+@app.route('/others')
+def others_page():
+    return render_template('others.html',posts=query_by_job())
 ##########################################################################################
 # Running the Flask app
 if __name__ == "__main__":

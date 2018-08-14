@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>My Final Project</title>
-        <link rel="stylesheet" type="text/css" href="../static/homepage.css">
+        <link rel="stylesheet" type="text/css" href="../static/style_new.css">
         <!-- Required tags to make the website responsive-->
               <!-- Required tags to make the website responsive-->
        <meta charset="utf-8">
@@ -16,7 +16,7 @@
     <body>
 
 		    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Bill Block</a>
+  <a class="navbar-brand" href="#"><img src="{{ url_for('static',filename='billblock.png') }}" width=100px height=100px id="image"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -40,11 +40,11 @@
           Categories
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Jobs</a>
-          <a class="dropdown-item" href="#">Sales</a>
-          <a class="dropdown-item" href="#">Losts & Founds</a>
-          <a class="dropdown-item" href="#">News</a>
-          <a class="dropdown-item" href="#">Others</a>
+          <a class="dropdown-item" href="{{url_for('jobs_page')}}">Jobs</a>
+          <a class="dropdown-item" href="{{url_for('sales_page')}}">Sales</a>
+          <a class="dropdown-item" href="{{url_for('lost_and_found_page')}}">Losts & Founds</a>
+          <a class="dropdown-item" href="{{url_for('news_page')}}">News</a>
+          <a class="dropdown-item" href="{{url_for('others_page')}}">Others</a>
         </div>
       </li>
     </ul>
@@ -85,10 +85,17 @@
 		}
 
 
+  </script>
+  <center>
+  <img src="{{ url_for('static',filename='homepage.png') }}" width=850px height=550px id="image">
+  </center>    
+          <div class="background">
+            <div class="transbox">
+              <p align="center">We are a happy & social a place can talk and get benefit from each other skills, in a fun and sharing way</p>
+            </div>
+          </div>
 
-	</script>
-
-
+        
        <!-- Add JQuery and Bootstrap JS to the page -->
        <!-- JQuery MUST BE BEFORE BOOTSTRAP -->
        <script src="{{ url_for('static', filename='bootstrap/jquery.js') }}"></script>
