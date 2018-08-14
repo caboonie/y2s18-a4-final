@@ -16,13 +16,13 @@
         </style>
     </head>
     <body>
-    	<ul>
-    		{% for j in jobs_posts %}
-    			<li>{{ j.category }}</li>
-    		{% endfor %}  
-    </ul>
-    <p>tyui</p>
     <form>
+    	{% for j in jobs_posts %}
+    	   <li>{{ j.category }}</li>
+    	{% endfor %}  
+    
+   
+    
     <label for="post"></label>
     <input type="text" id="post" name="post" value=jobs_posts[j]>
 </form>
