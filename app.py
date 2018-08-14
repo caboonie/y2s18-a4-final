@@ -52,7 +52,10 @@ def Login():
     else:
         user = request.form['username']
         password = request.form['password']
-        return(check_account(user,password))
+        if check_account(user,password):
+            return(profile(user))
+        else:
+            return('/login.html')
             
 
 ############################################ CATEGORIES #######################################
@@ -82,13 +85,12 @@ def jobspage():
 ###############################################################
 
 @app.route('/profile.html')
-def Show_prof():
-    return render_template('Profile.html')
-    pass
+def show_prof():
+    return render_template('profile.html')
 
 ############################################ HOME ############################################
 
-@app.route('/forgotpass',methods= ['GET','POST'])
+@app.route('/forgotpass.html',methods= ['GET','POST'])
 def frgt_pwd():
     if request.method == 'GET':
         return render_template('forgotpwd.html')
@@ -106,6 +108,7 @@ def display_result(result):
     if request.method == 'GET':
         matches = search(result)
         return render_template('searchResult.html',matches=matches)
+
 ##############################################################################################
 
 ##########################################################################################
@@ -114,4 +117,5 @@ if __name__ == "__main__":
     app.run(debug=True, port=8080)
 
 ##############################################################################################
+
 
