@@ -64,11 +64,11 @@ body {
     background-size: cover;
 
     background-repeat:no-repeat;
-    background: -webkit-linear-gradient( to  top, PaleTurquoise , DarkOrange);
-    background: -moz-linear-gradient( to  top, PaleTurquoise , DarkOrange);
-    background: -ms-linear-gradient( to  top,  PaleTurquoise , DarkOrange);
-    background: -o-linear-gradient( to  top,  PaleTurquoise , DarkOrange);
-    background: linear-gradient( to  top, PaleTurquoise , DarkOrange);
+    background: -webkit-linear-gradient( to  top, DarkOrange , PaleTurquoise);
+    background: -moz-linear-gradient( to  top, DarkOrange , PaleTurquoise);
+    background: -ms-linear-gradient( to  top,   DarkOrange , PaleTurquoise);
+    background: -o-linear-gradient( to  top,   DarkOrange , PaleTurquoise);
+    background: linear-gradient( to  top,  DarkOrange , PaleTurquoise); 
 
 }
 .texta {
