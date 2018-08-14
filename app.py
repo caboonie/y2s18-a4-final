@@ -108,7 +108,7 @@ def display_result(result):
 ##############################################################################################
 @app.route('/Jobs.')
 def jobs_page():
-    return render_template('Jobs.html',posts=query_by_job())
+    return render_template('Jobs.html',jobs_posts=query_by_job())
 
 ##########################################################################################
 @app.route('/sales')
