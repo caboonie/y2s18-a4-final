@@ -163,7 +163,7 @@ def jobs_page():
         log = "true"
     else:
         log = "false"
-    return render_template('Jobs.html',jobs_posts=query_by_job(),log=log)
+    return render_template('Jobs.html',jobs_posts=query_by_cat('jobs'),log=log)
 
 ##########################################################################################
 @app.route('/sales')
@@ -172,7 +172,7 @@ def sales_page():
         log = "true"
     else:
         log = "false"
-    return render_template('Sales.html',posts=query_by_job(),log=log)
+    return render_template('Sales.html',sales_posts=query_by_cat('sales'),log=log)
 
 ##########################################################################################
 @app.route('/lostandfound')
@@ -181,7 +181,7 @@ def lost_and_found_page():
         log = "true"
     else:
         log = "false"
-    return render_template('lost_and_found.html',posts=query_by_job(),log=log)
+    return render_template('lost_and_found.html',posts=query_by_cat('lost_and_found'),log=log)
 
 ##########################################################################################
 @app.route('/news')
@@ -190,7 +190,7 @@ def news_page():
         log = "true"
     else:
         log = "false"
-    return render_template('news.html',posts=query_by_job(),log=log)
+    return render_template('news.html',posts=query_by_cat('news'),log=log)
 
 ##########################################################################################
 @app.route('/others')
@@ -199,7 +199,7 @@ def others_page():
         log = "true"
     else:
         log = "false"
-    return render_template('others.html',posts=query_by_job(),log=log)
+    return render_template('others.html',posts=query_by_cat('others'),log=log)
 ##########################################################################################
 # Running the Flask app
 if __name__ == "__main__":

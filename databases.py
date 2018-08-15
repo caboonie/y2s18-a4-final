@@ -44,10 +44,8 @@ def if_account_exist(email1):
 def query_by_username(username1):
 	return session.query(User).filter_by(username=username1).first()
 	
-def query_by_job():
-    posts = session.query(
-       Post).filter_by(
-       category="jobs").all()
+def query_by_cat(cat):
+    posts = session.query(Post).filter_by(category=cat).all()
     return posts
 
 def search(data):
