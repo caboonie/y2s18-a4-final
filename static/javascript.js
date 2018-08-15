@@ -18,7 +18,7 @@ function myFunction() {
 
 
   // Sign up
-  var log = '{{log}}'
+  var log = '{{log}}';
   if (log=='false') {
     var str1 = "Sign Up";
     var result1 = str1.link("{{url_for('SignUp')}}");

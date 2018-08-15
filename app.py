@@ -130,20 +130,15 @@ def display_result():
         result = request.form['data']        
         matches = search(result)
         if len(matches) == 0:
-<<<<<<< HEAD
+
             flash('No matching results for: '+result)
             return redirect(url_for('home'))
             return render_template('searchResult.html',matches=matches)
-        else:
-            return redirect(url_for('home'))
-=======
-            no_matches = True
         else:
             no_matches = False
         return render_template('searchResult.html',matches=matches, no_matches=no_matches)
     else:
         return redirect(url_for('home'))
->>>>>>> c3483d3b5d698a3f288691e3166d031c724f431e
 
 # def logout(username):
 #     del login_session['username']
