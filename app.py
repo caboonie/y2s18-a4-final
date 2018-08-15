@@ -159,6 +159,10 @@ def display_result():
 ##############################################################################################
 @app.route('/jobs')
 def jobs_page():
+    if('username' in login_session):
+        log = "true"
+    else:
+        log = "false"
     return render_template('Jobs.html',jobs_posts=query_by_job(),log=log)
 
 ##########################################################################################

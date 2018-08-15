@@ -148,6 +148,13 @@ div.transbox {
   margin: 20px
   
 }
+.hello{
+    position:absolute;
+    font-size:20px;
+    font-family: "Courier New", Courier New, Monospace;
+    top:15px;
+    left:1200px;
+}
 
 .post {  
     background-repeat: no-repeat;
