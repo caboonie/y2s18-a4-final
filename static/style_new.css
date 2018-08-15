@@ -56,8 +56,14 @@
  }
 
 body {
-    height: 100%;
+    height: 100vh;
     margin:0px;
+
+    background: -webkit-linear-gradient( to  top, DarkOrange , PaleTurquoise);
+    background: -moz-linear-gradient( to  top, DarkOrange , PaleTurquoise);
+    background: -ms-linear-gradient( to  top,   DarkOrange , PaleTurquoise);
+    background: -o-linear-gradient( to  top,   DarkOrange , PaleTurquoise);
+    background: linear-gradient( to  top,  DarkOrange , PaleTurquoise); 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -65,12 +71,6 @@ body {
 
     background-repeat:no-repeat;
     background-attachment: fixed;
-    background: -webkit-linear-gradient( to  top, DarkOrange , PaleTurquoise);
-    background: -moz-linear-gradient( to  top, DarkOrange , PaleTurquoise);
-    background: -ms-linear-gradient( to  top,   DarkOrange , PaleTurquoise);
-    background: -o-linear-gradient( to  top,   DarkOrange , PaleTurquoise);
-    background: linear-gradient( to  top,  DarkOrange , PaleTurquoise); 
-
 }
 .texta {
     position: absolute;
