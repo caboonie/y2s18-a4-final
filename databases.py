@@ -16,7 +16,7 @@ session = DBSession()
 
 # Example of adding a student:
 def add_student(username1, password1, email1, name1, lastName1, location1):
-    print("Added a student!")
+    print(lastName1)
     user = User(username=username1, password=password1, email=email1, name=name1, lastName=lastName1, location=location1)
     session.add(user)
     session.commit()
