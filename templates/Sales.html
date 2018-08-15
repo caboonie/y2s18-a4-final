@@ -60,6 +60,35 @@
 
       <script src="{{ url_for('static', filename='bootstrap/jquery.js') }}"></script>
       <script src="{{ url_for('static', filename='bootstrap/bootstrap.bundle.js') }}"></script>
+
+      <!--   -->
+<script>
+    var colors = ['DarkOrange', 'white', 'PaleTurquoise'];
+    
+  </script>
+  <!--   -->
+  <body>
+      {% if no_matches == True %}
+      <div class="nothing">
+        NO matches
+      </div>
+      
+      {% endif %}
+  
+    {% for i in range(matches | length) %}
+    <div class="post">
+      <ul>
+        <li>{{matches[i].description}}</li>
+        <script>
+        var random_color = colors[Math.floor(Math.random() * colors.length)];
+        document.getElementsByClassName('post')[{{i}}].style.backgroundColor = random_color;
+      </script>
+        <br>
+        <br>
+      </ul>
+    </div>
+    {% endfor %}
+
     
     </body>
     </html>
