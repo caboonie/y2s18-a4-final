@@ -1,13 +1,19 @@
 # Flask-related imports
 # Add functions you need from databases.py to the next line!
 from databases import *
-from flask import Flask, flash, session, render_template, url_for, redirect, request
-# from flask import session as login_session
+from flask import Flask, flash, render_template, url_for, redirect, request
+from flask import session as login_session
 # from flask.ext.session import Session
 from forgotpass import send_mail
 # Starting the flask app
 app = Flask(__name__)
 # App routing code here
+
+#Login
+
+
+#Logout
+
 
 
 
@@ -57,8 +63,9 @@ def Login():
         user = request.form['username']
         password = request.form['password']
         if check_account(user,password):
-            session['username'] = request.form['username']
-            return redirect(url_for('show_prof',username=user))
+            login_session['username'] = request.form['username']
+            # return redirect(url_for('show_prof',username=user))
+            return redirect(url_for('home'))
         else:
             return render_template('login.html')
             
@@ -93,7 +100,7 @@ def show_prof(username):
 
 ############################################ HOME ############################################
 
-@app.route('/forgotpass.html',methods= ['GET','POST'])
+@app.route('/forgotpass',methods= ['GET','POST'])
 def frgt_pwd():
     if request.method == 'GET':
         return render_template('forgotpwd.html')
@@ -107,19 +114,18 @@ def frgt_pwd():
 
 @app.route('/searchResult',methods= ['GET','POST'])
 def display_result():
-    if request.method == 'POST':
-        result = request.form['data']        
-        matches = search(result)
-        if len(matches) == 0:
-            return("No results")
-        return render_template('searchResult.html',matches=matches)
-    else:
-        return "no"
+    # if request.method == 'POST':
+    print(request)
+    result = request.form['data']        
+    matches = search(result)
+    return render_template('searchResult.html',matches=matches)
+    # else:
+    #     return("No results")
 
 # def logout(username):
 #     del login_session['username']
 ##############################################################################################
-@app.route('/Jobs')
+@app.route('/jobs')
 def jobs_page():
     return render_template('Jobs.html',jobs_posts=query_by_job())
 

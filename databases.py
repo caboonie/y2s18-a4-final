@@ -51,6 +51,4 @@ def query_by_job():
     return posts
 
 def search(data):
-	print(session.query(Post).filter(Post.description.contains(data)).all()
-)
 	return session.query(Post).filter(Post.description.contains(data)).all()
