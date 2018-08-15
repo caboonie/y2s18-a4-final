@@ -147,6 +147,14 @@ div.transbox {
   margin: 20px
 }
 
+.post {
+    background-color: rgb(175, 76, 76);     
+    background-repeat: no-repeat;
+    background-size: 300px 300px;
+    width: 300px;
+    height: 300px;
+    font-size: 15px;
+}
 div.transbox p {
   margin: 5%;
   font-weight: bold;
@@ -155,4 +163,9 @@ div.transbox p {
 #submi{
     color: white;
     background-color: DarkOrange;
+}
+
+.JobRequests{
+    margin-left: 50px;
+    margin-top: 30px;
 }
