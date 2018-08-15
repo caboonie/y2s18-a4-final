@@ -3,7 +3,7 @@ li{
 }
 
 .post {
-	background-image: url('note.jpg');    
+	background-color: rgb(175, 76, 76);	    
 	background-repeat: no-repeat;
 	background-size: 300px 300px;
     width: 300px;
