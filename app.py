@@ -6,19 +6,15 @@ from flask import session as login_session
 # from flask.ext.session import Session
 from forgotpass import send_mail
 # Starting the flask app
+
 app = Flask(__name__)
-# App routing code here
-# Check Configuration section for more details
-# SESSION_TYPE = 'redis'
-# app.config['SESSION_TYPE'] = 'filesystem'
-# app.secret_key = "VERY SECRET."
 app.secret_key = "VERY SECRET." 
-# Session(app)
+
 ############################################ HOME ############################################
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/<string:if_post>' ,methods= ['GET','POST'])
 def home(if_post="false"):
-    if(login_session['username'] != None):
+    if('username' in login_session):
         log = "true"
     else:
         log = "false"
@@ -54,7 +50,7 @@ def SignUp ():
 
 @app.route('/login.html',methods= ['GET','POST'])
 def Login():
-    if(login_session['username'] != None):
+    if('username' in login_session):
         log = "true"
     else:
         log = "false"
@@ -138,8 +134,6 @@ def display_result():
     else:
         return redirect(url_for('home'))
 
-# def logout(username):
-#     del login_session['username']
 ##############################################################################################
 @app.route('/jobs')
 def jobs_page():
