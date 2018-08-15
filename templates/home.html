@@ -71,6 +71,14 @@
     </head>
 
 	<script>
+		var if_post1 = ({{if_post}});
+		if_post1 = String(if_post1);
+
+		if(if_post1 == "true")
+		{
+			alert("Your post has been publish!");
+		}
+
 		function myFunction() {
 			document.getElementById("myDropdown").classList.toggle("show");
 		    return false;
