@@ -55,11 +55,12 @@ def SignUp ():
 
 @app.route('/login.html',methods= ['GET','POST'])
 def Login():
+    log = 0
     if('username' in login_session):
         log = "true"
     else:
         log = "false"
-
+    print(log)
     if request.method == 'GET':
         return render_template('login.html',log=log)
     else:
