@@ -22,7 +22,8 @@ def home(if_post="false"):
     if request.method == 'GET':
         if if_post == "true":
             return render_template('home.html', if_post = "true",log=log)
-        return render_template('home.html', if_post = "false", log=log)
+        else:
+            return render_template('home.html', if_post = "false", log=log)
     else:
         return redirect(url_for('display_result'))
 
@@ -30,6 +31,10 @@ def home(if_post="false"):
 
 @app.route('/signup.html',methods= ['GET','POST'])
 def SignUp ():
+    if('username' in login_session):
+        log = "true"
+    else:
+        log = "false"
     if request.method == 'GET':
         return render_template('signup.html')
     else:
@@ -78,17 +83,25 @@ def logout():
 
 @app.route('/categories.html')
 def Show():
-    return render_template('Categories.html')
+    if('username' in login_session):
+        log = "true"
+    else:
+        log = "false"
+    return render_template('Categories.html',log=log)
     pass
 
 ############################################ REQUEST ############################################
 
 @app.route('/request.html',methods= ['GET','POST'])
 def Add():
+    if('username' in login_session):
+        log = "true"
+    else:
+        log = "false"
     if login_session.get("username") == None:
         return redirect(url_for("Login"))
     if request.method == 'GET':
-        return render_template('post_request.html')
+        return render_template('post_request.html',log=log)
     else:
         cat = request.form['cat'].strip()
         text = request.form['text'].strip()
@@ -108,8 +121,12 @@ def show_prof(username):
 
 @app.route('/forgotpass',methods= ['GET','POST'])
 def frgt_pwd():
+    if('username' in login_session):
+        log = "true"
+    else:
+        log = "false"
     if request.method == 'GET':
-        return render_template('forgotpwd.html')
+        return render_template('forgotpwd.html',log=log)
     else:
         email = request.form['email']
         if if_account_exist(email):
@@ -120,6 +137,10 @@ def frgt_pwd():
 
 @app.route('/searchResult',methods= ['GET','POST'])
 def display_result():
+    if('username' in login_session):
+        log = "true"
+    else:
+        log = "false"
     if request.method == 'POST':
         result = request.form['data']        
         matches = search(result)
@@ -127,37 +148,53 @@ def display_result():
 
             flash('No matching results for: '+result)
             return redirect(url_for('home'))
-            return render_template('searchResult.html',matches=matches)
+            return render_template('searchResult.html',matches=matches,log=log)
         else:
             no_matches = False
-        return render_template('searchResult.html',matches=matches, no_matches=no_matches)
+        return render_template('searchResult.html',matches=matches, no_matches=no_matches,log=log)
     else:
         return redirect(url_for('home'))
 
 ##############################################################################################
 @app.route('/jobs')
 def jobs_page():
-    return render_template('Jobs.html',jobs_posts=query_by_job())
+    return render_template('Jobs.html',jobs_posts=query_by_job(),log=log)
 
 ##########################################################################################
 @app.route('/sales')
 def sales_page():
-    return render_template('Sales.html',posts=query_by_job())
+    if('username' in login_session):
+        log = "true"
+    else:
+        log = "false"
+    return render_template('Sales.html',posts=query_by_job(),log=log)
 
 ##########################################################################################
 @app.route('/lostandfound')
 def lost_and_found_page():
-    return render_template('lost_and_found.html',posts=query_by_job())
+    if('username' in login_session):
+        log = "true"
+    else:
+        log = "false"
+    return render_template('lost_and_found.html',posts=query_by_job(),log=log)
 
 ##########################################################################################
 @app.route('/news')
 def news_page():
-    return render_template('news.html',posts=query_by_job())
+    if('username' in login_session):
+        log = "true"
+    else:
+        log = "false"
+    return render_template('news.html',posts=query_by_job(),log=log)
 
 ##########################################################################################
 @app.route('/others')
 def others_page():
-    return render_template('others.html',posts=query_by_job())
+    if('username' in login_session):
+        log = "true"
+    else:
+        log = "false"
+    return render_template('others.html',posts=query_by_job(),log=log)
 ##########################################################################################
 # Running the Flask app
 if __name__ == "__main__":

@@ -31,12 +31,9 @@
             <li class="nav-item">
               <a class="nav-link" href="{{url_for('Add')}}">Post a request</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{url_for('Login')}}">Login</a>
+            <li class="nav-item", id="demo">
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{url_for('SignUp')}}">Sign up</a>
-            </li>
+            <li class="nav-item", id="signup"></li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false	">
                 Categories
@@ -62,6 +59,7 @@
         </div>
       </nav>
         <link rel="stylesheet" type="text/css" href="../static/style_new.css">
+      </body>
     <style>
     	h1{
     		font-size: 50px;
@@ -70,9 +68,8 @@
     		top:50px;
     		left:50px;
     	}
-    </style>
-
-    </head>
+  </style>
+  <body>
        {% with messages = get_flashed_messages() %}
               {% if messages %}
                 <ul class=flashes>
@@ -107,7 +104,7 @@
 		    }
 		  }
 		}
-x
+
   </script>
 
   <center>
@@ -172,6 +169,53 @@ x
        <!-- JQuery MUST BE BEFORE BOOTSTRAP -->
        <script src="{{ url_for('static', filename='bootstrap/jquery.js') }}"></script>
        <script src="{{ url_for('static', filename='bootstrap/bootstrap.bundle.js') }}"></script>
-    
-    </body>
+<script>
+  var if_post1 = ({{if_post}});
+  if_post1 = String(if_post1);
+    if(if_post1 == "true"){
+      alert("Your post has been publish!");
+    }
+
+    function myFunction() {
+      document.getElementById("myDropdown").classList.toggle("show");
+        return false;
+    }
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+
+
+var log = '{{log}}';
+if (log=='false') {
+        var str1 = "Sign Up";
+        var result1 = str1.link("{{url_for('SignUp')}}");
+        document.getElementById("signup").classList.add("nav-link");
+        document.getElementById("signup").innerHTML = result1;
+    }
+var str;
+var result;
+document.getElementById("demo").classList.add("nav-link");
+if (log=='true') {
+    str = "Log Out";
+    result = str.link("{{url_for('Login')}}");
+    }
+else{
+        str = "Log in";
+        result = str.link("{{url_for('Login')}}");
+    }
+
+console.log(result)
+document.getElementById("demo").innerHTML = result;
+
+</script>
+</body>
 </html>
