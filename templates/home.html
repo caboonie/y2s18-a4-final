@@ -52,8 +52,8 @@
               </div>
             </li>
           </ul>
-          <form class="form-inline my-2 my-lg-0" method="post">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" name="data" aria-label="Search">
+          <form class="form-inline my-2 my-lg-0" action="{{url_for('display_result')}}" method="post">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" name="data" aria-label="Search">
             <button id="submi" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </form>
         </div>
@@ -69,7 +69,15 @@
     	}
     </style>
     </head>
-
+       {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                <ul class=flashes>
+                {% for message in messages %}
+                  <li>{{ message }}</li>
+                {% endfor %}
+                </ul>
+              {% endif %}
+        {% endwith %}
 	<script>
 		function myFunction() {
 			document.getElementById("myDropdown").classList.toggle("show");
@@ -127,7 +135,9 @@
     </div>
     
   </center>    
- 
+    
+    
+    
           <div class="background">
             <div class="transbox">
               <p align="center">We are a happy & social a place can talk and get benefit from each other skills, in a fun and sharing way</p>
@@ -139,6 +149,6 @@
        <!-- JQuery MUST BE BEFORE BOOTSTRAP -->
        <script src="{{ url_for('static', filename='bootstrap/jquery.js') }}"></script>
        <script src="{{ url_for('static', filename='bootstrap/bootstrap.bundle.js') }}"></script>
-
+    
     </body>
 </html>
