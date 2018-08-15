@@ -58,18 +58,19 @@
 body {
     height: 100vh;
     margin:0px;
+
+    background: -webkit-linear-gradient( to  top, DarkOrange , PaleTurquoise);
+    background: -moz-linear-gradient( to  top, DarkOrange , PaleTurquoise);
+    background: -ms-linear-gradient( to  top,   DarkOrange , PaleTurquoise);
+    background: -o-linear-gradient( to  top,   DarkOrange , PaleTurquoise);
+    background: linear-gradient( to  top,  DarkOrange , PaleTurquoise); 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 
     background-repeat:no-repeat;
-    background: -webkit-linear-gradient( to  top, DarkOrange , PaleTurquoise);
-    background: -moz-linear-gradient( to  top, DarkOrange , PaleTurquoise);
-    background: -ms-linear-gradient( to  top,   DarkOrange , PaleTurquoise);
-    background: -o-linear-gradient( to  top,   DarkOrange , PaleTurquoise);
-    background: linear-gradient( to  top,  DarkOrange , PaleTurquoise); 
-
+    background-attachment: fixed;
 }
 .texta {
     position: absolute;
@@ -137,7 +138,7 @@ div.background {
   background: url(klematis.jpg) repeat;
   border: 2px solid black;
 }
-
+ 
 div.transbox {
   margin: 30px;
   background-color: #ffffff;
@@ -148,8 +149,7 @@ div.transbox {
   
 }
 
-.post {
-    background-color: rgb(175, 76, 76);     
+.post {  
     background-repeat: no-repeat;
     background-size: 300px 300px;
     width: 300px;

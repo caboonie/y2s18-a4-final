@@ -1,21 +1,43 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>My Final Project</title>
-         <link rel="stylesheet" type="text/css" href="../static/style_new.css">
-    </head>
-    <body>
-      {% if len(matches) == 0 %}
-      NO matches
-      {% endif %}
-      
-      <ul class="list">      
-        {% for post in matches %}
-        <div class="post">
-        <li>{{post.description}}</li><br><br>
 
-        </div>
-        {% endfor %}
-      </ul>
-    </body>
-    </html>
+
+<head>
+  <title>My Final Project</title>
+  <link rel="stylesheet" type="text/css" href="../static/style_new.css">
+
+  <style>
+  </style>
+</head>
+<!--   -->
+<script>
+  var colors = ['DarkOrange', 'white', 'PaleTurquoise'];
+  
+</script>
+<!--   -->
+<body>
+    {% if no_matches == True %}
+    <div class="nothing">
+      NO matches
+    </div>
+    
+    {% endif %}
+
+  {% for i in range(matches | length) %}
+  <div class="post">
+    <ul>
+      <li>{{matches[i].description}}</li>
+      <script>
+      var random_color = colors[Math.floor(Math.random() * colors.length)];
+      document.getElementsByClassName('post')[{{i}}].style.backgroundColor = random_color;
+    </script>
+      <br>
+      <br>
+    </ul>
+  </div>
+  {% endfor %}
+
+ 
+</body>
+
+</html>
