@@ -8,15 +8,6 @@ from forgotpass import send_mail
 # Starting the flask app
 app = Flask(__name__)
 # App routing code here
-
-#Login
-
-
-#Logout
-
-
-
-
 # Check Configuration section for more details
 # SESSION_TYPE = 'redis'
 # app.config['SESSION_TYPE'] = 'filesystem'
@@ -41,14 +32,15 @@ def SignUp ():
     if request.method == 'GET':
         return render_template('signup.html')
     else:
-        flash('You were successfully logged in')
-        print('signed up')
-        name = request.form['name']
-        lastName = request.form['familyName']
-        user = request.form['user']
-        password = request.form['password']
-        mail = request.form['mail']
-        loc = request.form['loc']
+        try:
+            name = request.form['name']
+            lastName = request.form['familyName']
+            user = request.form['user']
+            password = request.form['password']
+            mail = request.form['mail']
+            loc = request.form['loc']
+        except:
+            return render_template("signup.html", error="u r bad")
         add_student(user,password,mail,name,lastName,loc)
         return redirect(url_for('home'))
     
@@ -63,13 +55,17 @@ def Login():
         user = request.form['username']
         password = request.form['password']
         if check_account(user,password):
+            login_session['logged_in'] = True
             login_session['username'] = request.form['username']
             # return redirect(url_for('show_prof',username=user))
             return redirect(url_for('home'))
         else:
             return render_template('login.html')
-            
 
+@app.route('/logout')
+def logout():
+    login_session.clear()
+    return redirect(url_for('home'))
 ############################################ CATEGORIES #######################################
 
 @app.route('/categories.html')

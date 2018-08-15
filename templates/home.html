@@ -50,6 +50,9 @@
               </div>
             </li>
           </ul>
+          {% if session['logged_in'] %}
+          <h1>Hello {{session['username']}}</h1>
+          {% endif%}
           <form class="form-inline my-2 my-lg-0" action="{{url_for('display_result')}}" method="post">
             <input class="form-control mr-sm-2" type="text" placeholder="Search" name="data" aria-label="Search">
             <button id="submi" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
