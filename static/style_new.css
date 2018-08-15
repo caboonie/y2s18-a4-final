@@ -170,3 +170,16 @@ div.transbox p {
     margin-left: 50px;
     margin-top: 30px;
 }
+
+.Jrequest{
+    background-color: yellow;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    margin-left: 6px;
+    margin-right: 6px;
+    display: inline-block;
+    padding: 8px;
+    border-radius: 10px;
+    height:auto;
+
+}

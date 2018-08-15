@@ -101,9 +101,11 @@
       <script src="{{ url_for('static', filename='bootstrap/bootstrap.bundle.js') }}"></script>
       <div class = "JobRequests">
         {% for j in jobs_posts %}
-           <p>{{ j.category }}</p>
-             <p>{{j.description }}</p>
-             <label for="post"></label>
+        <div class = "Jrequest">
+
+        <p>{{j.description }}</p>
+        <label for="post"></label>
+        </div>
         {% endfor %}  
       </div>
 </body>

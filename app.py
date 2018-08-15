@@ -67,7 +67,7 @@ def Login():
             # return redirect(url_for('show_prof',username=user))
             return redirect(url_for('home'))
         else:
-            return render_template('login.html')
+            return render_template('login.html', error = "username or password are not correct!")
             
 
 ############################################ CATEGORIES #######################################
@@ -81,6 +81,8 @@ def Show():
 
 @app.route('/request.html',methods= ['GET','POST'])
 def Add():
+    if login_session.get("username") == None:
+        return redirect(url_for("Login"))
     if request.method == 'GET':
         return render_template('post_request.html')
     else:
