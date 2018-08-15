@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 
+
 <head>
   <title>My Final Project</title>
   <link rel="stylesheet" type="text/css" href="../static/style_new.css">
@@ -12,6 +13,13 @@
 </script>
 <!--   -->
 <body>
+    {% if no_matches == True %}
+    <div class="nothing">
+      NO matches
+    </div>
+    
+    {% endif %}
+
   {% for i in range(matches | length) %}
   <div class="post">
     <ul>
