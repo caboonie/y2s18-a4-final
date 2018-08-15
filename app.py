@@ -114,13 +114,15 @@ def frgt_pwd():
 
 @app.route('/searchResult',methods= ['GET','POST'])
 def display_result():
-    # if request.method == 'POST':
-    print(request)
-    result = request.form['data']        
-    matches = search(result)
-    return render_template('searchResult.html',matches=matches)
-    # else:
-    #     return("No results")
+    if request.method == 'POST':
+        result = request.form['data']        
+        matches = search(result)
+        if len(matches) == 0:
+            flash('No matching results for: '+result)
+            return redirect(url_for('home'))
+        return render_template('searchResult.html',matches=matches)
+    else:
+        return redirect(url_for('home'))
 
 # def logout(username):
 #     del login_session['username']

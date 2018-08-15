@@ -24,30 +24,35 @@
           <li class="nav-item">
               <a class="nav-link" href="{{url_for('Add')}}">Post a request</a>
           </li>
-          <li class="nav-item">
-              <a class="nav-link" href="{{url_for('Login')}}">Login</a>
-          </li>
           <li class="nav-item", id="demo">
             <script>
-                var log=true
+                var log=true;
+                var str;
+                var result;
+                document.getElementById("demo").classList.add("nav-link")
                 if (log==true) {
-                    var str = "Log Out";
-                    var result = str.link("{{url_for('Login')}}");
+                    str = "Log Out";
+                    result = str.link("{{url_for('Login')}}");
+                }
+                else{
+                    str = "Log in";
+                    result = str.link("{{url_for('Login')}}");
+                }
+                
+                document.getElementById("demo").innerHTML = result;
+
+            </script>
+        </li>
+        <li class="nav-item", id="demo">
+            <script>
+                log=true
+                if (log==false) {
+                    var str = "Sign Up";
+                    var result = str.link("{{url_for('SignUp')}}");
                     document.getElementById("demo").classList.add("nav-link")
                     document.getElementById("demo").innerHTML = result;
                 }
-            </script>
-        </li>
-        <li class="nav-item">
-                  <!--   <script>
-                        if (log==true) {
-                            var str = "Sign Up";
-                            var result = str.link("{{url_for('SignUp')}}")};
-                        else{
-                            var str = "Log out";
-                            var result = str.link("{{url_for('Login')}}")};
-                        </script> -->
-                        <a class="nav-link" href="{{url_for('SignUp')}}">Sign up</a>
+                </script>
                     </li>
                     <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false	">

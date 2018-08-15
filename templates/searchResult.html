@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>My Final Project</title>
-         <link rel="stylesheet" type="text/css" href="../static/search.css">
+         <link rel="stylesheet" type="text/css" href="../static/style_new.css">
     </head>
     <body>
       {% if len(matches) == 0 %}
@@ -11,11 +11,10 @@
       
       <ul class="list">      
         {% for post in matches %}
-      <div class="post">
-
+        <div class="post">
         <li>{{post.description}}</li><br><br>
 
-      </div>
+        </div>
         {% endfor %}
       </ul>
     </body>
