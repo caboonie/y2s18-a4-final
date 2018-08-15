@@ -56,7 +56,7 @@
  }
 
 body {
-    height: 100vh;
+    height: 100%;
     margin:0px;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -64,6 +64,7 @@ body {
     background-size: cover;
 
     background-repeat:no-repeat;
+    background-attachment: fixed;
     background: -webkit-linear-gradient( to  top, DarkOrange , PaleTurquoise);
     background: -moz-linear-gradient( to  top, DarkOrange , PaleTurquoise);
     background: -ms-linear-gradient( to  top,   DarkOrange , PaleTurquoise);
@@ -137,7 +138,7 @@ div.background {
   background: url(klematis.jpg) repeat;
   border: 2px solid black;
 }
-
+ 
 div.transbox {
   margin: 30px;
   background-color: #ffffff;
@@ -147,8 +148,7 @@ div.transbox {
   margin: 20px
 }
 
-.post {
-    background-color: rgb(175, 76, 76);     
+.post {  
     background-repeat: no-repeat;
     background-size: 300px 300px;
     width: 300px;

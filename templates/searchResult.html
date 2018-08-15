@@ -1,16 +1,32 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>My Final Project</title>
-         <link rel="stylesheet" type="text/css" href="../static/style_new.css">
-    </head>
-    <body>
-        {% for post in matches %}
-      <div class="post">
-      <ul>
-        <li>{{post.description}}</li><br><br>
-      </ul>
-      </div>
-        {% endfor %}
-    </body>
-    </html>
+
+<head>
+  <title>My Final Project</title>
+  <link rel="stylesheet" type="text/css" href="../static/style_new.css">
+</head>
+<!--   -->
+<script>
+  var colors = ['DarkOrange', 'white', 'PaleTurquoise'];
+  
+</script>
+<!--   -->
+<body>
+  {% for i in range(matches | length) %}
+  <div class="post">
+    <ul>
+      <li>{{matches[i].description}}</li>
+      <script>
+      var random_color = colors[Math.floor(Math.random() * colors.length)];
+      document.getElementsByClassName('post')[{{i}}].style.backgroundColor = random_color;
+    </script>
+      <br>
+      <br>
+    </ul>
+  </div>
+  {% endfor %}
+
+ 
+</body>
+
+</html>
