@@ -18,11 +18,13 @@ app = Flask(__name__)
 app.secret_key = "VERY SECRET." 
 # Session(app)
 ############################################ HOME ############################################
-
-@app.route('/' ,methods= ['GET','POST'])
-def home():
+@app.route('/', methods=['GET', 'POST'])
+@app.route('/<string:if_post>' ,methods= ['GET','POST'])
+def home(if_post="false"):
     if request.method == 'GET':
-        return render_template('home.html')
+        if if_post == "true":
+            return render_template('home.html', if_post = "true")
+        return render_template('home.html', if_post = "false")
     else:
         return redirect(url_for('display_result'))
 
@@ -78,7 +80,7 @@ def Add():
         cat = request.form['cat'].strip()
         text = request.form['text'].strip()
         add_post(cat,text)
-        return("your post has been published")
+        return redirect(url_for("home",if_post="true"))
 
 
 ############################################ PROFILE ############################################

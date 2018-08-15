@@ -1,121 +1,141 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>My Final Project</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="../static/style_new.css">
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap/bootstrap.css') }}">
+<head>
+    <title>My Final Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../static/style_new.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap/bootstrap.css') }}">
 
 
-    </head>
-    <body>
+</head>
+<body>
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#"><img src="{{ url_for('static',filename='billblock.png') }}" width=100px height=100px id="image"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-          
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                  <a class="nav-link" href="{{url_for('home')}}">Home </a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#"><img src="{{ url_for('static',filename='billblock.png') }}" width=100px height=100px id="image"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{{url_for('home')}}">Home </a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="{{url_for('Add')}}">Post a request</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="{{url_for('Login')}}">Login</a>
+          </li>
+          <li class="nav-item", id="demo">
+            <script>
+                var log=true
+                if (log==true) {
+                    var str = "Log Out";
+                    var result = str.link("{{url_for('Login')}}");
+                    document.getElementById("demo").classList.add("nav-link")
+                    document.getElementById("demo").innerHTML = result;
+                }
+            </script>
+        </li>
+        <li class="nav-item">
+                  <!--   <script>
+                        if (log==true) {
+                            var str = "Sign Up";
+                            var result = str.link("{{url_for('SignUp')}}")};
+                        else{
+                            var str = "Log out";
+                            var result = str.link("{{url_for('Login')}}")};
+                        </script> -->
+                        <a class="nav-link" href="{{url_for('SignUp')}}">Sign up</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false	">
+                        Categories
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{url_for('jobs_page')}}">Jobs</a>
+                        <a class="dropdown-item" href="{{url_for('sales_page')}}">Sales</a>
+                        <a class="dropdown-item" href="{{url_for('lost_and_found_page')}}">Losts & Founds</a>
+                        <a class="dropdown-item" href="{{url_for('news_page')}}">News</a>
+                        <a class="dropdown-item" href="{{url_for('others_page')}}">Others</a>
+                    </div>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{{url_for('Add')}}">Post a request</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{{url_for('Login')}}">Login</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{{url_for('SignUp')}}">Sign up</a>
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false	">
-                    Categories
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{url_for('jobs_page')}}">Jobs</a>
-                    <a class="dropdown-item" href="{{url_for('sales_page')}}">Sales</a>
-                    <a class="dropdown-item" href="{{url_for('lost_and_found_page')}}">Losts & Founds</a>
-                    <a class="dropdown-item" href="{{url_for('news_page')}}">News</a>
-                    <a class="dropdown-item" href="{{url_for('others_page')}}">Others</a>
-                  </div>
-                </li>
-              </ul>
-              <form class="form-inline my-2 my-lg-0" method="post">
+
+            </ul>
+            <form class="form-inline my-2 my-lg-0" method="post">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" name="data" aria-label="Search">
                 <button id="submi" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-              </form>
-            </div>
-          </nav>
+            </form>
+        </div>
+    </nav>
     
     
     
-          <script src="{{ url_for('static', filename='bootstrap/jquery.js') }}"></script>
-          <script src="{{ url_for('static', filename='bootstrap/bootstrap.bundle.js') }}"></script>
-        <link rel="stylesheet" type="text/css" href="../static/style_new.css">
+    <script src="{{ url_for('static', filename='bootstrap/jquery.js') }}"></script>
+    <script src="{{ url_for('static', filename='bootstrap/bootstrap.bundle.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="../static/style_new.css">
     <style>
-        h1{
-            font-size: 50px;
-            font-family: "Courier New", Courier New, Monospace;
-            position:absolute;
-            top:50px;
-            left:50px;
-        }
-    </style>
-    </head>
+    h1{
+        font-size: 50px;
+        font-family: "Courier New", Courier New, Monospace;
+        position:absolute;
+        top:50px;
+        left:50px;
+    }
+</style>
+</head>
 
-    <script>
-        function myFunction() {
-            document.getElementById("myDropdown").classList.toggle("show");
-            return false;
-        }
-        window.onclick = function(event) {
-            if (!event.target.matches('.dropbtn')) {
+<script>
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+        return false;
+    }
+    window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
             var dropdowns = document.getElementsByClassName("dropdown-content");
             var i;
             for (i = 0; i < dropdowns.length; i++) {
                 var openDropdown = dropdowns[i];
                 if (openDropdown.classList.contains('show')) {
-                openDropdown.classList.remove('show');
-              }
+                    openDropdown.classList.remove('show');
+                }
             }
-          }
         }
+    }
 
 
-    </script>    <body>
-    	<form method="post">
-        <br>
-        <br>
-        <div class="signup">
+</script>    <body>
+   <form method="post">
+    <br>
+    <br>
+    <div class="signup">
     	<input type="text" name="name" placeholder="First name">
         <br>
         <br>
-    	<input type="text" name="familyName" placeholder="Last name">
-    	<br>
+        <input type="text" name="familyName" placeholder="Last name">
         <br>
-    	<input type="text" name="user" placeholder="Username">
-    	<br>
         <br>
-    	<input type="password" name="password" placeholder="Password"> 
-    	<br>
+        <input type="text" name="user" placeholder="Username">
         <br>
-    	<input type="text" name="mail" placeholder="Mail">
-    	<br>
+        <br>
+        <input type="password" name="password" placeholder="Password"> 
+        <br>
+        <br>
+        <input type="text" name="mail" placeholder="Mail">
+        <br>
         <br>
         <br>
         <input type="radio" name="loc" value="Haifa">Haifa
         <input type="radio" name="loc" value="Nazareth">Nazarath
         <input type="radio" name="loc" value="Jerusalem">Jerusalem
-		<br>
-		<br>
-        <br>
-		<input type="submit" value="submit" onclick="alert('You just signed up')">
         <br>
         <br>
-        </div>
-	    </form>
-    </body>
+        <br>
+        <input type="submit" value="submit" onclick="alert('You just signed up')">
+        <br>
+        <br>
+    </div>
+</form>
+</body>
 </html>
