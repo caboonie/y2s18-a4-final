@@ -18,10 +18,15 @@ app.secret_key = "VERY SECRET."
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/<string:if_post>' ,methods= ['GET','POST'])
 def home(if_post="false"):
+    if(login_session['username'] != None):
+        log = "true"
+    else:
+        log = "false"
+
     if request.method == 'GET':
         if if_post == "true":
-            return render_template('home.html', if_post = "true")
-        return render_template('home.html', if_post = "false")
+            return render_template('home.html', if_post = "true",log=log)
+        return render_template('home.html', if_post = "false", log=log)
     else:
         return redirect(url_for('display_result'))
 
@@ -43,22 +48,29 @@ def SignUp ():
             return render_template("signup.html", error="u r bad")
         add_student(user,password,mail,name,lastName,loc)
         return redirect(url_for('home'))
-    
+
 
 ############################################ LOGIN ############################################
 
 @app.route('/login.html',methods= ['GET','POST'])
 def Login():
+    if(login_session['username'] != None):
+        log = "true"
+    else:
+        log = "false"
+
     if request.method == 'GET':
-        return render_template('login.html')
+        return render_template('login.html',log=log)
     else:
         user = request.form['username']
         password = request.form['password']
         if check_account(user,password):
             login_session['logged_in'] = True
             login_session['username'] = request.form['username']
+
             # return redirect(url_for('show_prof',username=user))
-            return redirect(url_for('home'))
+            return redirect(url_for('home',log=log))
+
         else:
             return render_template('login.html')
 
@@ -114,12 +126,20 @@ def display_result():
         result = request.form['data']        
         matches = search(result)
         if len(matches) == 0:
+<<<<<<< HEAD
+            flash('No matching results for: '+result)
+            return redirect(url_for('home'))
+            return render_template('searchResult.html',matches=matches)
+        else:
+            return redirect(url_for('home'))
+=======
             no_matches = True
         else:
             no_matches = False
         return render_template('searchResult.html',matches=matches, no_matches=no_matches)
     else:
         return redirect(url_for('home'))
+>>>>>>> c3483d3b5d698a3f288691e3166d031c724f431e
 
 # def logout(username):
 #     del login_session['username']

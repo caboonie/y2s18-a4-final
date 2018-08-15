@@ -4,7 +4,7 @@
   <title>My Final Project</title>
   <link rel="stylesheet" type="text/css" href="../static/style_new.css">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap/bootstrap.css') }}">
-
+  <link rel="stylesheet" type="text/css" href="../static/signup.css">
   <style>
   h1{
     font-size: 50px;
@@ -103,8 +103,10 @@
 
 <script src="{{ url_for('static', filename='bootstrap/jquery.js') }}"></script>
 <script src="{{ url_for('static', filename='bootstrap/bootstrap.bundle.js') }}"></script>
+<!-- <script src="{{ url_for('static', filename='javascript.js') }}"></script> -->
+
 <script>
-  function myFunction() {
+function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
     return false;
   }
@@ -123,9 +125,9 @@
 
 
 
-
-  log1=true
-  if (log1==false) {
+  // Sign up
+  var log = '{{log}}';
+  if (log=='false') {
     var str1 = "Sign Up";
     var result1 = str1.link("{{url_for('SignUp')}}");
     document.getElementById("signup").classList.add("nav-link");
@@ -134,12 +136,11 @@
 
 
 
-
-  var log=true;
+  // Log in
   var str;
   var result;
   document.getElementById("demo").classList.add("nav-link");
-  if (log==true) {
+  if (log=='true') {
     str = "Log Out";
     result = str.link("{{url_for('Login')}}");
   }
