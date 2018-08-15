@@ -50,12 +50,24 @@
           </form>
         </div>
       </nav>
-      <ul>
-        {% for j in sales_posts %}
-            <li>{{ j.category }}</li>
-            <li>ghjk</li>
+<!--             <div class = "JobRequests">
+        {% for j in jobs_posts %}
+        <div class = "Jrequest">
+
+        <p>{{j.description }}</p>
+        <label for="post"></label>
+        </div>
         {% endfor %}  
-</ul>
+      </div> -->
+    <div class = "JobRequests">
+
+        {% for j in sales_posts %}
+        <div class = "Jrequest">
+            <p>{{ j.description }}</p>
+            <label for="post"></label>
+        </div>
+        {% endfor %}  
+    </div>
 
 
       <script src="{{ url_for('static', filename='bootstrap/jquery.js') }}"></script>

@@ -52,7 +52,32 @@
         }
 
 
+            var log = '{{log}}';
+    if (log == 'false') {
+      var str1 = "Sign Up";
+      var result1 = str1.link("{{url_for('SignUp')}}");
+      document.getElementById("signup").classList.add("nav-link");
+      document.getElementById("signup").innerHTML = result1;
+    }
+    var str;
+    var result;
+    document.getElementById("demo").classList.add("nav-link");
+    if (log == 'true') {
+      str = "Log Out";
+      result = str.link("{{url_for('Login')}}");
+    }
+    else {
+      str = "Log in";
+      result = str.link("{{url_for('Login')}}");
+    }
     </script>
+
+    else {
+      str = "Log in";
+      result = str.link("{{url_for('Login')}}");
+    }
+    </script>
+
 
 
     
@@ -95,29 +120,6 @@
           </form>
         </div>
       </nav>
-
-
-    var log = '{{log}}';
-    if (log == 'false') {
-      var str1 = "Sign Up";
-      var result1 = str1.link("{{url_for('SignUp')}}");
-      document.getElementById("signup").classList.add("nav-link");
-      document.getElementById("signup").innerHTML = result1;
-    }
-    var str;
-    var result;
-    document.getElementById("demo").classList.add("nav-link");
-    if (log == 'true') {
-      str = "Log Out";
-      result = str.link("{{url_for('Login')}}");
-    }
-    else {
-      str = "Log in";
-      result = str.link("{{url_for('Login')}}");
-    }
-
-
-
       <script src="{{ url_for('static', filename='bootstrap/jquery.js') }}"></script>
       <script src="{{ url_for('static', filename='bootstrap/bootstrap.bundle.js') }}"></script>
       <div class = "JobRequests">
