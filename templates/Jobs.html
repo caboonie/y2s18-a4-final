@@ -95,12 +95,8 @@
             <li class="nav-item">
               <a class="nav-link" href="{{url_for('Add')}}">Post a request</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{url_for('Login')}}">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{url_for('SignUp')}}">Sign up</a>
-            </li>
+            <li class="nav-item", id="demo"></li>
+            <li class="nav-item", id="signup"></li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false	">
                 Categories
@@ -120,6 +116,7 @@
           </form>
         </div>
       </nav>
+
       <script src="{{ url_for('static', filename='bootstrap/jquery.js') }}"></script>
       <script src="{{ url_for('static', filename='bootstrap/bootstrap.bundle.js') }}"></script>
       <div class = "JobRequests">
@@ -131,6 +128,31 @@
         </div>
         {% endfor %}  
       </div>
+<script>
+
+var log = '{{log}}';
+if (log=='false') {
+        var str1 = "Sign Up";
+        var result1 = str1.link("{{url_for('SignUp')}}");
+        document.getElementById("signup").classList.add("nav-link");
+        document.getElementById("signup").innerHTML = result1;
+    }
+var str;
+var result;
+document.getElementById("demo").classList.add("nav-link");
+if (log=='true') {
+    str = "Log Out";
+    result = str.link("{{url_for('logout')}}");
+    }
+else{
+        str = "Log in";
+        result = str.link("{{url_for('Login')}}");
+    }
+
+console.log(result)
+document.getElementById("demo").innerHTML = result;
+
+</script>
 </body>
    
 </html>
