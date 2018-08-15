@@ -118,9 +118,10 @@ def display_result():
         result = request.form['data']        
         matches = search(result)
         if len(matches) == 0:
-            flash('No matching results for: '+result)
-            return redirect(url_for('home'))
-        return render_template('searchResult.html',matches=matches)
+            no_matches = True
+        else:
+            no_matches = False
+        return render_template('searchResult.html',matches=matches, no_matches=no_matches)
     else:
         return redirect(url_for('home'))
 

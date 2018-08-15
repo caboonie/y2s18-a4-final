@@ -5,8 +5,11 @@
          <link rel="stylesheet" type="text/css" href="../static/style_new.css">
     </head>
     <body>
-      {% if len(matches) == 0 %}
-      NO matches
+      {% if no_matches == True %}
+      <div class="nothing">
+        NO matches
+      </div>
+      
       {% endif %}
       
       <ul class="list">      
