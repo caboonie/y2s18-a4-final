@@ -10,8 +10,7 @@
 
     </head>
     <body>
-    	
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#"><img src="{{ url_for('static',filename='billblock.png') }}" width=100px height=100px id="image"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -25,14 +24,10 @@
             <li class="nav-item">
               <a class="nav-link" href="{{url_for('Add')}}">Post a request</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{url_for('Login')}}">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{url_for('SignUp')}}">Sign up</a>
-            </li>
+            <li class="nav-item", id="demo"></li>
+            <li class="nav-item", id="signup"></li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false	">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false ">
                 Categories
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -50,12 +45,24 @@
           </form>
         </div>
       </nav>
-      <ul>
-        {% for j in sales_posts %}
-            <li>{{ j.category }}</li>
-            <li>ghjk</li>
+<!--             <div class = "JobRequests">
+        {% for j in jobs_posts %}
+        <div class = "Jrequest">
+
+        <p>{{j.description }}</p>
+        <label for="post"></label>
+        </div>
         {% endfor %}  
-</ul>
+      </div> -->
+    <div class = "JobRequests">
+
+        {% for j in sales_posts %}
+        <div class = "Jrequest">
+            <p>{{ j.description }}</p>
+            <label for="post"></label>
+        </div>
+        {% endfor %}  
+    </div>
 
 
       <script src="{{ url_for('static', filename='bootstrap/jquery.js') }}"></script>
@@ -89,6 +96,47 @@
     </div>
     {% endfor %}
 
-    
+    <script>
+  function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+    return false;
+  }
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
+
+var log = '{{log}}';
+
+if (log=='false') {
+        var str1 = "Sign Up";
+        var result1 = str1.link("{{url_for('SignUp')}}");
+        document.getElementById("signup").classList.add("nav-link");
+        document.getElementById("signup").innerHTML = result1;
+    }
+var str;
+var result;
+document.getElementById("demo").classList.add("nav-link");
+if (log=='true') {
+    str = "Log Out";
+    result = str.link("{{url_for('logout')}}");
+    }
+else{
+        str = "Log in";
+        result = str.link("{{url_for('Login')}}");
+    }
+
+console.log(result)
+document.getElementById("demo").innerHTML = result;
+
+</script>
     </body>
     </html>
