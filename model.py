@@ -9,7 +9,7 @@ Base = declarative_base()
 
 # Example code:
 class User(Base):
-    __tablename__ = "users"
+    __tablename__ = "usersTable"
     id = Column(Integer, primary_key = True)
     username = Column(String)
     password = Column(String)
@@ -23,7 +23,7 @@ class User(Base):
 
 
 class Post(Base):
-	__tablename__ = "posts"
+	__tablename__ = "postsTable"
 	id = Column(Integer, primary_key = True)
 	category = Column(String)
 	description = Column(String)
