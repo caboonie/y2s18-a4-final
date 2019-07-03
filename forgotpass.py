@@ -1,5 +1,5 @@
 import smtplib
-from databases import *
+#from databases import *
 
 def send_mail(email):
 	
